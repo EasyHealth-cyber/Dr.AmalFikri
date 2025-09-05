@@ -18,6 +18,6 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // ✅ Important for Vercel: use relative base path
-  base: "./",
+  // ✅ Correct for Vercel deployment
+  base: "/",
 }));
