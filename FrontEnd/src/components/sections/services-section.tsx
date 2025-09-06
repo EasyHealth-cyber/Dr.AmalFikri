@@ -6,7 +6,7 @@ export function ServicesSection() {
   const services = [
     {
       icon: UserRound,
-      title: "Consultation Individuelle psychiatre addictologue ",
+      title: "Consultation Individuelle psychiatrie addictologie ",
       description: "Nous réalisons une évaluation complète du terrain psychiatrique, l’analyse de la personnalité, ainsi qu’un accompagnement spécialisé en addictologie pour soutenir le patient dans les processus de sevrage de substances. Ces consultations permettent d’établir un plan de suivi personnalisé et adapté aux besoins spécifiques de chaque individu.",
       color: "text-primary"
     },
