@@ -64,10 +64,9 @@ export function DoctorSection() {
             </p>
 
             {/* Signature */}
-<span className="absolute -bottom-10 right-0 text-2xl font-[cursive] text-healing-green opacity-80">
-  Dr. Amal Fikri
-</span>
-
+            <span className="absolute -bottom-9 right-0 text-2xl font-serif [font-family:'Dancing Script',cursive] text-healing-green opacity-80">
+              Dr. Amal Fikri
+            </span>
           </div>
         </div>
       </div>
