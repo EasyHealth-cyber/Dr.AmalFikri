@@ -39,16 +39,43 @@ export function AboutSection() {
                 Votre Bien-être, Ma Priorité
               </h3>
 
-              {/* Centered Logo Card */}
-              <div className="flex justify-center w-full">
-                <div className="p-4 bg-white rounded-3xl shadow-xl hover:shadow-2xl transform transition-all duration-500 hover:scale-105">
-                  <img 
-                    src={logo} 
-                    alt="Logo" 
-                    className="w-16 sm:w-20 md:w-24 object-contain rounded-xl"
-                  />
-                </div>
-              </div>
+           {/* Ultra-Premium Interactive 3D Logo */}
+<div 
+  className="mb-6 flex justify-center perspective-1000"
+  onMouseMove={(e) => {
+    const el = e.currentTarget.firstChild as HTMLElement;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    el.style.transform = `rotateY(${x * 0.03}deg) rotateX(${-y * 0.03}deg) scale(1.05)`;
+  }}
+  onMouseLeave={(e) => {
+    const el = e.currentTarget.firstChild as HTMLElement;
+    el.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+  }}
+>
+  <div className="relative p-2 sm:p-4 rounded-2xl border border-transparent shadow-md shadow-gray-400/20 transition-all duration-500 animate-gentle-bounce transform-gpu">
+    
+    {/* Animated gradient halo with breathing effect */}
+    <div 
+      className="absolute inset-0 rounded-2xl blur-xl opacity-25 animate-gradientShift pointer-events-none"
+      style={{ animation: 'gradientShift 6s ease-in-out infinite, haloBreath 4s ease-in-out infinite' }}
+    ></div>
+
+    {/* Subtle shimmer overlay */}
+    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-20 pointer-events-none animate-[shimmer_3s_linear_infinite] mix-blend-screen"></div>
+
+    <img 
+      src={logo} 
+      alt="Logo" 
+      title="Our Brand Logo"
+      className="relative w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 object-contain rounded-xl transition-shadow duration-500 hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] hover:animate-pulse"
+    />
+  </div>
+</div>
+
+
+
             </div>
           </div>
 
