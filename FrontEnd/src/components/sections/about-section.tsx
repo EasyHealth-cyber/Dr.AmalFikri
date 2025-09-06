@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Award, Users } from "lucide-react";
 import doctorPhoto from "@/assets/Doctors/doctor-office.jpg";
+import logo from "@/assets/logo.jpg"; // make sure this is your logo path
 
 export function AboutSection() {
   return (
@@ -14,11 +15,8 @@ export function AboutSection() {
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4 bg-clip-text text-transparent bg-gradient-to-r from-healing-blue to-healing-green">
-              À Propos du Dr. Amal Fikri
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Une approche personnalisée et bienveillante pour votre bien-être mental
-            </p>
+            </h2>
           </div>
 
           {/* Main content */}
@@ -40,21 +38,15 @@ export function AboutSection() {
               <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Votre Bien-être, Ma Priorité
               </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed max-w-lg">
-                Avec plus de 5 années d'expérience dans le domaine de la santé mentale, 
-                je propose un accompagnement personnalisé basé sur l'écoute, la compréhension 
-                et des méthodes thérapeutiques éprouvées.
-              </p>
-              <p className="text-muted-foreground mb-12 leading-relaxed max-w-lg">
-                Mon approche intègre différentes techniques thérapeutiques adaptées à chaque 
-                personne, dans un environnement sécurisant et confidentiel.
-              </p>
 
-              {/* Centered Experience Card */}
+              {/* Centered Logo Card */}
               <div className="flex justify-center w-full">
-                <div className="p-10 bg-gradient-to-r from-healing-blue/20 to-healing-green/20 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-2xl transform transition-all duration-500 w-52">
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2 animate-bounce-slow">5+</div>
-                  <p className="text-sm md:text-base text-muted-foreground">Années d'expérience</p>
+                <div className="p-4 bg-white rounded-3xl shadow-xl hover:shadow-2xl transform transition-all duration-500 hover:scale-105">
+                  <img 
+                    src={logo} 
+                    alt="Logo" 
+                    className="w-16 sm:w-20 md:w-24 object-contain rounded-xl"
+                  />
                 </div>
               </div>
             </div>

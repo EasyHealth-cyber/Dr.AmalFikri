@@ -78,10 +78,20 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-5xl text-center">
-        {/* Logo */}
-        <div className="mb-6 flex justify-center">
-          <img src={logo} alt="Logo" className="w-24 sm:w-28 md:w-32 object-contain" />
-        </div>
+   {/* Logo */}
+<div className="mb-6 flex justify-center">
+  <div className="p-3 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+    <img 
+      src={logo} 
+      alt="Logo" 
+      className="w-16 sm:w-20 md:w-24 object-contain rounded-xl"
+    />
+  </div>
+</div>
+
+
+
+
 
         {/* Gradient heading */}
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 md:mb-8 bg-gradient-to-r from-healing-blue via-healing-green to-primary bg-clip-text text-transparent animate-gradient-shimmer">

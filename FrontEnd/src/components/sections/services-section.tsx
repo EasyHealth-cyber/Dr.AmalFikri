@@ -1,17 +1,17 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Group, Briefcase, Home, ArrowRight } from 'lucide-react';
+import { UserRound, Users, Briefcase, Home, ArrowRight } from 'lucide-react';
 
 export function ServicesSection() {
   const services = [
     {
-      icon: MessageCircle,
-      title: "Consultation Individuelle",
+      icon: UserRound,
+      title: "Consultation Individuelle psychiatre addictologue ",
       description: "Nous réalisons une évaluation complète du terrain psychiatrique, l’analyse de la personnalité, ainsi qu’un accompagnement spécialisé en addictologie pour soutenir le patient dans les processus de sevrage de substances. Ces consultations permettent d’établir un plan de suivi personnalisé et adapté aux besoins spécifiques de chaque individu.",
       color: "text-primary"
     },
     {
-      icon: Group,
+      icon: Users,
       title: "Thérapie de couple ",
       description: "La thérapie de couple offre un espace sécurisé pour améliorer la communication, résoudre les conflits et renforcer la relation. Elle permet aux partenaires de comprendre leurs dynamiques relationnelles, d’exprimer leurs émotions et de développer des stratégies concrètes pour un lien harmonieux et durable.",
       color: "text-healing-green"
