@@ -78,16 +78,33 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-5xl text-center">
-   {/* Logo */}
-<div className="mb-6 flex justify-center">
-  <div className="p-3 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+{/* Premium Floating Logo – No White Outlines */}
+<div className="mb-6 flex justify-center perspective-1000">
+  <div className="relative p-2 sm:p-4 rounded-2xl border border-transparent shadow-md shadow-gray-300/20 transition-transform duration-500 animate-gentle-bounce transform-gpu hover:scale-105 hover:shadow-xl hover:shadow-blue-300/30">
+    
+    {/* Soft colored halo behind logo */}
+    <div className="absolute inset-0 rounded-2xl bg-blue-200/15 blur-xl opacity-25 animate-[pulse_4s_ease-in-out_infinite] pointer-events-none"></div>
+
+    {/* No shine overlay */}
+    
     <img 
       src={logo} 
       alt="Logo" 
-      className="w-16 sm:w-20 md:w-24 object-contain rounded-xl"
+      title="Our Brand Logo"
+      className="relative w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 object-contain rounded-xl transition-all duration-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:animate-pulse hover:rotate-1"
     />
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
