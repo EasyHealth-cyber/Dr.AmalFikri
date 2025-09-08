@@ -1,21 +1,34 @@
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { MultilingualText } from '@/components/ui/multilingual-text';
-import { Heart, Brain, Shield } from 'lucide-react';
-import doctorPhoto from '@/assets/Doctors/doctor-photo.jpg';
-import logo from '@/assets/logo.jpg'; // Add your logo here
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { MultilingualText } from "@/components/ui/multilingual-text";
+import { Heart, Brain, Shield } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import doctorPhoto from "@/assets/Doctors/doctor-photo.jpg";
+import logo from "@/assets/logo.jpg"; // Add your logo here
 
 export function HeroSection() {
   const topSlogans = [
     { text: "Pour un esprit apaisé", lang: "fr", dir: "ltr" as const },
     { text: "For a Healthier Mind", lang: "en", dir: "ltr" as const },
-    { text: "من أجل صحة نفسية أفضل", lang: "ar", dir: "rtl" as const }
+    { text: "من أجل صحة نفسية أفضل", lang: "ar", dir: "rtl" as const },
   ];
 
   const bottomSlogans = [
-    { text: "Votre alliée en santé mentale, dédiée à un accompagnement thérapeutique humain et personnalisé", lang: "fr", dir: "ltr" as const },
-    { text: "Your trusted partner in mental health, dedicated to humane and personalized therapeutic support", lang: "en", dir: "ltr" as const },
-    { text: "حليفتكم في الصحة النفسية, مكرسة لتقديم دعم علاجي إنساني ومخصص", lang: "ar", dir: "rtl" as const }
+    {
+      text: "Votre alliée en santé mentale, dédiée à un accompagnement thérapeutique humain et personnalisé",
+      lang: "fr",
+      dir: "ltr" as const,
+    },
+    {
+      text: "Your trusted partner in mental health, dedicated to humane and personalized therapeutic support",
+      lang: "en",
+      dir: "ltr" as const,
+    },
+    {
+      text: "حليفتكم في الصحة النفسية, مكرسة لتقديم دعم علاجي إنساني ومخصص",
+      lang: "ar",
+      dir: "rtl" as const,
+    },
   ];
 
   const subject = encodeURIComponent("Rendez-vous");
@@ -26,25 +39,17 @@ export function HeroSection() {
     : `https://mail.google.com/mail/?view=cm&fs=1&to=drfikriamal@gmail.com&su=${subject}&body=${body}`;
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      setTilt({
-        x: ((e.clientY - centerY) / centerY) * 8,
-        y: ((e.clientX - centerX) / centerX) * 8
-      });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-gradient-to-b from-primary/5 via-background/20 to-background px-4 md:px-6">
-      
       {/* Background floating blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -left-32 w-80 h-80 bg-healing-blue/20 rounded-full blur-3xl animate-slow-bounce"></div>
@@ -71,44 +76,25 @@ export function HeroSection() {
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 10}s`
+              animationDuration: `${5 + Math.random() * 10}s`,
             }}
           ></div>
         ))}
       </div>
 
       <div className="relative z-10 w-full max-w-5xl text-center">
-{/* Premium Floating Logo – No White Outlines */}
-<div className="mb-6 flex justify-center perspective-1000">
-  <div className="relative p-2 sm:p-4 rounded-2xl border border-transparent shadow-md shadow-gray-300/20 transition-transform duration-500 animate-gentle-bounce transform-gpu hover:scale-105 hover:shadow-xl hover:shadow-blue-300/30">
-    
-    {/* Soft colored halo behind logo */}
-    <div className="absolute inset-0 rounded-2xl bg-blue-200/15 blur-xl opacity-25 animate-[pulse_4s_ease-in-out_infinite] pointer-events-none"></div>
-
-    {/* No shine overlay */}
-    
-    <img 
-      src={logo} 
-      alt="Logo" 
-      title="Our Brand Logo"
-      className="relative w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 object-contain rounded-xl transition-all duration-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:animate-pulse hover:rotate-1"
-    />
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        {/* Premium Floating Logo */}
+        <div className="mb-6 flex justify-center perspective-1000">
+          <div className="relative p-2 sm:p-4 rounded-2xl border border-transparent shadow-md shadow-gray-300/20 transition-transform duration-500 animate-gentle-bounce transform-gpu hover:scale-105 hover:shadow-xl hover:shadow-blue-300/30">
+            <div className="absolute inset-0 rounded-2xl bg-blue-200/15 blur-xl opacity-25 animate-[pulse_4s_ease-in-out_infinite] pointer-events-none"></div>
+            <img
+              src={logo}
+              alt="Logo"
+              title="Our Brand Logo"
+              className="relative w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 object-contain rounded-xl transition-all duration-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:animate-pulse hover:rotate-1"
+            />
+          </div>
+        </div>
 
         {/* Gradient heading */}
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 md:mb-8 bg-gradient-to-r from-healing-blue via-healing-green to-primary bg-clip-text text-transparent animate-gradient-shimmer">
@@ -118,13 +104,27 @@ export function HeroSection() {
           </span>
         </h1>
 
-        {/* Top slogans */}
+        {/* Top slogans with staggered transition */}
         <div className="mb-12 flex items-center justify-center">
-          <MultilingualText 
-            texts={topSlogans}
-            className="text-2xl md:text-3xl font-semibold text-healing-blue animate-text-fade"
-            interval={4000}
-          />
+          <div className="h-12 flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key="top-slogans"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                <MultilingualText
+                  texts={topSlogans}
+                  className="text-2xl md:text-3xl font-semibold tracking-wide 
+                            bg-gradient-to-r from-healing-blue via-healing-green to-primary 
+                            bg-clip-text text-transparent drop-shadow-md animate-gradient-shimmer"
+                  interval={4200}
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Doctor Photo */}
@@ -141,41 +141,70 @@ export function HeroSection() {
             Dr. Amal Fikri
           </h2>
 
-          {/* Bottom slogans under name */}
-          <div className="mt-4 md:mt-6 lg:mt-8 flex flex-col items-center justify-center space-y-2">
-            <MultilingualText 
-              texts={bottomSlogans}
-              className="text-2xl md:text-3xl font-semibold text-healing-blue animate-text-fade text-center"
-              interval={4000}
-            />
+          {/* Bottom slogans with staggered transition */}
+          <div className="mt-9 md:mt-9 lg:mt-8 flex flex-col items-center justify-center">
+            <div className="h-16 flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key="bottom-slogans"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  <MultilingualText
+                    texts={bottomSlogans}
+                    className="text-2xl md:text-3xl font-semibold tracking-wide 
+                            bg-gradient-to-r from-healing-blue via-healing-green to-primary 
+                            bg-clip-text text-transparent drop-shadow-md animate-gradient-shimmer"
+                    interval={4200}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 
         {/* Core Values */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {[ 
-            { icon: Heart, title: 'Empathie', desc: 'Écoute bienveillante et compréhension', color: 'text-healing-blue' },
-            { icon: Brain, title: 'Expertise', desc: 'Approches thérapeutiques modernes', color: 'text-healing-green' },
-            { icon: Shield, title: 'Confidentialité', desc: 'Espace sécurisé et confidentiel', color: 'text-primary' }
+          {[
+            {
+              icon: Heart,
+              title: "Empathie",
+              desc: "Écoute bienveillante et compréhension",
+              color: "text-healing-blue",
+            },
+            {
+              icon: Brain,
+              title: "Expertise",
+              desc: "Approches thérapeutiques modernes",
+              color: "text-healing-green",
+            },
+            {
+              icon: Shield,
+              title: "Confidentialité",
+              desc: "Espace sécurisé et confidentiel",
+              color: "text-primary",
+            },
           ].map((item, idx) => (
             <div
               key={idx}
               className="flex flex-col items-center p-6 bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl hover:shadow-3xl transition transform hover:-translate-y-2 hover:scale-105"
             >
               <item.icon className={`w-10 h-10 ${item.color} mb-3`} />
-              <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-              <p className="text-sm text-muted-foreground text-center">{item.desc}</p>
+              <h3 className="font-semibold text-foreground mb-2">
+                {item.title}
+              </h3>
+              <p className="text-sm text-muted-foreground text-center">
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <a
-            href={emailLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <div className="relative z-20 flex flex-col sm:flex-row gap-6 justify-center">
+          <a href={emailLink} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               className="bg-gradient-to-r from-healing-blue to-healing-green text-white font-bold px-12 py-4 rounded-3xl shadow-xl hover:shadow-2xl transform transition hover:scale-105 hover:brightness-105"
@@ -188,7 +217,11 @@ export function HeroSection() {
             variant="outline"
             size="lg"
             className="border-2 border-healing-blue text-healing-blue font-semibold px-12 py-4 rounded-3xl shadow-lg transform transition hover:bg-healing-blue/10 hover:scale-105 hover:shadow-2xl"
-            onClick={() => document.getElementById('doctor-section')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document
+                .getElementById("doctor-section")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             En Savoir Plus
           </Button>
